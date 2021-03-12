@@ -13,7 +13,7 @@ day = input('일을 입력하세요(ex. 11): ')
 studentDict = {}
 
 # 출석한 학생 확인
-f = open(f'/Users/soonhyeong/Documents/Developing/2021-capstone-assistant/{month}/{day}/att-21{month}{day}.txt', 'r')
+f = open(f'./{month}/{day}/att-21{month}{day}.txt', 'r')
 attendanceList = f.readlines()
 f.close()
 
@@ -23,7 +23,7 @@ for attendance in attendanceList:
     studentDict[studentName] = 0
 
 # 지각한 학생 확인
-f = open(f'/Users/soonhyeong/Documents/Developing/2021-capstone-assistant/{month}/{day}/chat-21{month}{day}.txt', 'r')
+f = open(f'./{month}/{day}/chat-21{month}{day}.txt', 'r')
 lateChatList = f.readlines()
 f.close()
 
