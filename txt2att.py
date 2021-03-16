@@ -12,7 +12,7 @@ day = input('일을 입력하세요(ex. 11): ')
 
 studentDict = {}
 
-# 출석한 학생 확인
+# 첫번째 출석 확인
 f = open(f'./{month}/{day}/att-21{month}{day}.txt', 'r')
 attendanceList = f.readlines()
 f.close()
@@ -20,9 +20,9 @@ f.close()
 for attendance in attendanceList:
     student = attendance.split()
     studentName = student[1].strip()
-    studentDict[studentName] = 0
+    studentDict[studentName] = 1
 
-# 지각한 학생 확인
+# 두번째 출석 확인
 f = open(f'./{month}/{day}/chat-21{month}{day}.txt', 'r')
 lateChatList = f.readlines()
 f.close()
@@ -39,11 +39,16 @@ for chat in lateChatList:
 
         # 만약 이미 출석한 학생이라면
         if studentDict.get(studentName) != None:
-            print(f'student name "{studentName}" duplicate')
+            # 정상 출석
+            studentDict[studentName] = 0
         else:
+            # 지각
             studentDict[studentName] = 1
 
 # 새로운 학생 출석 데이터프레임 생성
 df = pd.DataFrame(list(studentDict.items()), columns=['name', 'ATT'])
+# 출석 결과를 엑셀로 내보내기
+# 1: 지각 및 조퇴
+# 0: 출석
 df.to_excel(f'./{month}/{day}/att-result-21{month}{day}.xlsx', index=False)
 
