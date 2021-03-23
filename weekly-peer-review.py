@@ -34,5 +34,5 @@ meanDf = pd.DataFrame({'팀명': groupedMean.index, '점수': groupedMean.values
 meanDf = meanDf.sort_values(by='점수', ascending=False)
 
 # 종합 결과와 팀별 평균점수를 엑셀 파일에 저장
-resultDf.to_excel(f'./{month}/{day}/peer-review-result.xlsx', index=None)
-meanDf.to_excel(f'./{month}/{day}/peer-review-rank.xlsx', index=None)
+resultDf.to_excel(f'./{month}/{day}/{month}-{day}-peer-review-result.xlsx', index=None)
+meanDf.to_excel(f'./{month}/{day}/{month}-{day}-peer-review-rank.xlsx', index=None)
