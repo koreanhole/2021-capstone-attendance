@@ -5,9 +5,6 @@ import pandas as pd
 print('출석 txt 파일 제목 예시: att-210311.txt')
 print('출석 txt 파일 경로: 월/일/att-21{월}{일}.txt')
 print('*******************')
-print('채팅 txt 파일 제목 예시: chat-210311.txt')
-print('채팅 txt 파일 경로: 월/일/chat-21{월}{일}.txt')
-print('*******************')
 
 month = input('월을 입력하세요(ex. 03): ')
 day = input('일을 입력하세요(ex. 11): ')
@@ -17,7 +14,7 @@ studentDict = {}
 
 for name in df_from_excel['월'][1:]:
     # 각 학생의 기본 출석 상태: 3(결석)
-    studentDict[name] = 3
+    studentDict[name] = 2
 
 with open(f'./{month}/{day}/att-21{month}{day}.txt', 'r') as chatTxtFile:
     chatList = chatTxtFile.readlines()
