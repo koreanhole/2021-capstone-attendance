@@ -31,5 +31,5 @@ for dirName in dirList:
     resultDf = resultDf.drop(columns=resultDf.columns[range(3, len(resultDf.columns))], axis=1)
     # 팀명 기준으로 정렬
     resultDf = resultDf.sort_values(by='팀명')
-    resultDf.to_excel(f'./concatinated-reviews/{dirName}-peer-review-result.xlsx', index=None)
+    resultDf.to_excel(f'./concatinated-reviews/{dirName}.xlsx', index=None)
 
